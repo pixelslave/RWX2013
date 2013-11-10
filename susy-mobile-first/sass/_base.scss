@@ -1,0 +1,23 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "susy";
+
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$total-columns  : 5;
+$column-width   : 4em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+$tablet: 7;
+$desktop: 12;
+
+
+$brand-color1 :rgba(204, 0, 0, 1);
+
+
+$show-grid-backgrounds  : true;
+
+
+

@@ -1,0 +1,5 @@
+sudo gem install susy
+
+compass create susy  -r susy -u susy
+
+compass watch /Users/connief/

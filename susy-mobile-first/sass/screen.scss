@@ -1,0 +1,85 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "base";
+
+//Basic styling for the nav
+.pagenav ul,.pagenav li{ 
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+
+.pagenav li{ 
+  width:98%;
+  padding:.5em 1%;
+  background-color: rgba(153, 153, 153, .75);
+  border-top:solid 1px #fff;
+  }
+
+  .pagenav li:first-child{
+  border:0;
+  } 
+
+//Hamburger navigation for narrow widths
+#trigger { 
+  @include container($total-columns);
+  background-color: rgba(255, 0, 255, .25);
+}
+ #trigger img {
+    width:30px;
+    height:20px;
+    background: url(img/menu-trigger.png) no-repeat 0 0;
+    float:right;
+    margin:.5em 0;
+ }
+ #navList { display:none }
+
+//default height for responsive image contianer
+.main { height:300px;  }
+
+//Responsive images
+.main{
+  background: url(img/scaler-80.jpg) no-repeat 100% 0%;
+  background-size: cover;
+  //background: url(img/scaler-0.jpg) no-repeat 0% 0%;
+  //background-size: contain;
+}
+
+.page {
+  @include container($total-columns, $tablet, $desktop);
+}
+
+.contentinfo {
+  margin: 0 0 - $grid-padding;
+  padding: $grid-padding;
+}
+
+@include at-breakpoint($tablet) {
+  .page { @include susy-grid-background; }
+  .banner { @include span-columns($tablet); }
+  .main { @include span-columns(4, $tablet); height:200px;  }
+  .pagenav { @include span-columns(3 omega,$tablet); }
+  .contentinfo { @include span-columns($tablet); }
+}
+
+@include at-breakpoint($desktop) {
+   .page { @include susy-grid-background; }
+  .banner { @include prefix(2,$desktop); }
+  .main { @include span-columns(10 omega, $desktop); height:400px; }
+  .pagenav { @include span-columns(2,$desktop); }
+  .contentinfo { @include span-columns($desktop); }
+}
+
+//Hide the hamburger and show the menu at wider breakpoints
+@include at-breakpoint($tablet, $desktop) {
+  #navList {display:block}
+  #trigger{display:none}
+}
+
+//Makes the stripes for the grid and color the sections for visibility
+.page { @include susy-grid-background; }
+.banner{ background-color: rgba(0, 155, 255, .25);}
+.main { background-color: rgba(255, 255, 0, .25) }
+.contentinfo { background: transparentize($brand-color1, .25); color: #fff; }
+
